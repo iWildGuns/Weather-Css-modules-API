@@ -6,7 +6,7 @@
 }
 
 .form input[type="text"],
-form Select {
+.form select {
   padding: 1rem;
   background-color: transparent;
   border: 0.3rem solid var(--white);
@@ -15,6 +15,7 @@ form Select {
   font-weight: 400;
   border-radius: 1rem;
 }
+
 .field ::placeholder {
   color: var(--white);
 }
