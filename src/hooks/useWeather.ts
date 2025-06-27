@@ -58,7 +58,7 @@ export default function useWeather() {
     setLoading(true);
     setNotFound(false);
     try {
-      const geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${search.city},${search.country}&appid=${appId}`;
+      const geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${search.city},${search.country}&appid=${appId}`;
       const { data } = await axios(geoUrl, { method: "get" });
 
       if (!data[0]) {
@@ -88,6 +88,7 @@ export default function useWeather() {
       // }
 
       // ---------------------------- ZOD ---------------------------------//
+
       const { data: weatherResult } = await axios(weatherUrl);
       const result = Weather.safeParse(weatherResult);
       if (result.success) {
@@ -105,7 +106,6 @@ export default function useWeather() {
     } finally {
       setLoading(false);
     }
-    console.log("consultando....");
   };
 
   const hasWeatherData = useMemo(() => weather.name, [weather]);
